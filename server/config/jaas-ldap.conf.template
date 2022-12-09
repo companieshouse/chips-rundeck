@@ -1,0 +1,35 @@
+multiauth {
+
+com.dtolabs.rundeck.jetty.jaas.JettyCombinedLdapLoginModule required
+      debug="true"
+      contextFactory="com.sun.jndi.ldap.LdapCtxFactory"
+      providerUrl="${LDAP_PROVIDER_URL}"
+      bindDn="${LDAP_BIND_DN}"
+      bindPassword="${LDAP_BIND_PASSWORD}"
+      authenticationMethod="simple"
+      forceBindingLogin="true"
+      userBaseDn="${LDAP_BASE_DN}"
+      userRdnAttribute="sAMAccountName"
+      userIdAttribute="sAMAccountName"
+      userPasswordAttribute="userPassword"
+      userLastNameAttribute="sn"
+      userFirstNameAttribute="givenName"
+      userEmailAttribute="mail"
+      userObjectClass="user"
+      roleBaseDn="${LDAP_ROLE_BASE_DN}"
+      roleNameAttribute="cn"
+      roleUsernameMemberAttribute="cn"
+      roleMemberAttribute="member"
+      roleObjectClass="groupofnames"
+      cacheDurationMillis="300000"
+      ignoreRoles="true"
+      storePass="true"
+      ldapsVerifyHostname="false"
+      reportStatistics="true";
+
+org.rundeck.jaas.jetty.JettyRolePropertyFileLoginModule required
+      debug="true"
+      useFirstPass="true"
+      hotReload="true"
+      file="/apps/rundeck/server/config/realm/realm.properties";
+};

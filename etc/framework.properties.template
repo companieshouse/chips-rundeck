@@ -1,0 +1,36 @@
+# framework.properties -
+#
+
+# ----------------------------------------------------------------
+# Server connection information
+# ----------------------------------------------------------------
+
+framework.server.name=rundeck
+framework.server.hostname=rundeck
+framework.server.port=4440
+framework.server.url=${RUNDECK_SERVER_URL}
+
+# ----------------------------------------------------------------
+# Installation locations
+# ----------------------------------------------------------------
+
+rdeck.base=/apps/rundeck
+
+framework.projects.dir=/apps/rundeck/projects
+framework.etc.dir=/apps/rundeck/etc
+framework.var.dir=/apps/rundeck/var
+framework.tmp.dir=/apps/rundeck/var/tmp
+framework.logs.dir=/apps/rundeck/var/logs
+framework.libext.dir=/apps/rundeck/libext
+
+# ----------------------------------------------------------------
+# SSH defaults for node executor and file copier
+# ----------------------------------------------------------------
+
+framework.ssh.keypath = /apps/rundeck/.ssh/id_rsa
+framework.ssh.user = rundeck
+
+# ssh connection timeout after a specified number of milliseconds.
+# "0" value means wait forever.
+framework.ssh.timeout = 0
+

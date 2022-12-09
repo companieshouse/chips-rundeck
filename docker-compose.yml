@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  rundeck:
+    hostname: rundeck
+    image: ${RUNDECK_IMAGE:-chips-rundeck:latest}
+    ports:
+      - "4440:4440"
+    volumes:
+      - type: bind
+        source: ./realm
+        target: /apps/rundeck/server/config/realm
+    networks:
+      - chips-net
+    env_file: ./rundeck.properties
+networks:
+  chips-net:
+

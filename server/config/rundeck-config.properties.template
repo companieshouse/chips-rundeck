@@ -1,0 +1,32 @@
+#loglevel.default is the default log level for jobs: ERROR,WARN,INFO,VERBOSE,DEBUG
+loglevel.default=INFO
+rdeck.base=/apps/rundeck
+
+#rss.enabled if set to true enables RSS feeds that are public (non-authenticated)
+rss.enabled=false
+server.address=rundeck
+server.port=4440
+grails.serverURL=${RUNDECK_SERVER_URL}
+
+# Database settings
+dataSource.driverClassName=oracle.jdbc.OracleDriver
+dataSource.url=${RUNDECK_DATABASE_URL}
+dataSource.username=${RUNDECK_DATABASE_USERNAME}
+dataSource.password=${RUNDECK_DATABASE_PASSWORD}
+dataSource.dialect=org.rundeck.hibernate.RundeckOracleDialect
+dataSource.properties.validationQuery=SELECT 1 FROM DUAL
+
+dataSource.dbCreate=update
+grails.plugin.databasemigration.updateOnStart=true
+
+# Pre Auth mode settings
+rundeck.security.authorization.preauthenticated.enabled=false
+
+rundeck.feature.repository.enabled=true
+
+rundeck.storage.provider.1.type=db
+rundeck.storage.provider.1.path=/
+rundeck.config.storage.provider.1.type=db
+rundeck.config.storage.provider.1.path=/
+
+rundeck.security.syncLdapUser=true
