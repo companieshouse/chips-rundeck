@@ -22,10 +22,13 @@ COPY --chown=rundeck:rundeck etc ${RDECK_BASE}/etc/
 COPY --chown=rundeck:rundeck bin ${RDECK_BASE}/bin/
 COPY --chown=rundeck:rundeck server ${RDECK_BASE}/server/
 
-# Add ojdbc jar for Oracle DB
+# Add ojdbc jar for Oracle DB and any additional plugin jars
 RUN mkdir -p ${RDECK_BASE}/server/lib && \
     cd ${RDECK_BASE}/server/lib && \
-    curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/oracle/database/jdbc/ojdbc8/21.3.0.0/ojdbc8-21.3.0.0.jar -o ojdbc8-21.3.0.0.jar
+    curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/oracle/database/jdbc/ojdbc8/21.3.0.0/ojdbc8-21.3.0.0.jar -o ojdbc8-21.3.0.0.jar && \
+    mkdir -p ${RDECK_BASE}/libext && \
+    cd ${RDECK_BASE}/libext && \
+    curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar
 
 
 CMD ["/apps/rundeck/bin/start-rundeck.sh"]

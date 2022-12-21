@@ -21,6 +21,7 @@ In order to use the image, a number of environment properties need to be defined
 |RUNDECK_DATABASE_URL|The jdbc url to connect to the Oracle database with|``jdbc:oracle:thin:@my-db.staging.heritage.aws.internal:1529:MYDB``
 |RUNDECK_DATABASE_USERNAME|The database username|``myusername``
 |RUNDECK_DATABASE_PASSWORD|The database user password|``mypassword``
+|SLACK_WEBHOOK_TOKEN|An environment specific token for using the Slack notification plugin.  This allows a different webhook to be used in Staging and Live so that the notifications go to different Slack channels, such as ``#rundeck_test`` and ``#rundeck_prod``|``T0ABCDEFG/blahblah/blahblahblahblahblah``
 
 
 ### Building the image
