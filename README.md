@@ -29,4 +29,8 @@ To build the image, from the root of this repo, run:
 
     docker build -t chips-rundeck .
 
-The build expects there to be a rundeck war installer package in the root of the repo - e.g.  rundeck-#.#.#-########.war.
+The build expects the following in the root of the checked out repo:
+- A rundeck war install package - e.g. rundeck-#.#.#-########.war.
+- The AWS CLI install package - e.g. awscli-exe-linux-x86_64-#.#.#.zip
+
+Those packages are put into place by a Concourse pipeline in CH, but can be manually placed if building locally.  

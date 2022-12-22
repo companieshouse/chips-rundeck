@@ -11,10 +11,16 @@ RUN mkdir -p /apps && \
     yum clean all && \
     rm -rf /var/cache/yum
 
+# Install AWS CLI
+COPY awscli-exe-linux-x86_64-*.zip ${RDECK_BASE}/awscliv2.zip
+RUN cd ${RDECK_BASE} && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -r awscliv2.zip
+
+# Install RunDeck war
 USER rundeck
-
 COPY rundeck-*.war ${RDECK_BASE}
-
 RUN cd ${RDECK_BASE} && \
     /usr/java/jdk-8/bin/java -Xmx4g -jar rundeck-*.war --installonly
 
