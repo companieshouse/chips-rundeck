@@ -36,3 +36,10 @@ framework.ssh.timeout = 0
 
 framework.plugin.Notification.SlackNotification.webhook_token=${SLACK_WEBHOOK_TOKEN}
 framework.plugin.Notification.SlackNotification.webhook_base_url=https://hooks.slack.com/services
+
+# ---------------------------------------------------------------
+# Custom vars
+# ---------------------------------------------------------------
+
+framework.globals.csi-email-addresses=${CSI_EMAIL_ADDRESSES}
+framework.globals.fess-email-addresses=${FESS_EMAIL_ADDRESSES}

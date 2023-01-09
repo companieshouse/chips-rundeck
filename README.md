@@ -22,6 +22,10 @@ In order to use the image, a number of environment properties need to be defined
 |RUNDECK_DATABASE_USERNAME|The database username|``myusername``
 |RUNDECK_DATABASE_PASSWORD|The database user password|``mypassword``
 |SLACK_WEBHOOK_TOKEN|An environment specific token for using the Slack notification plugin.  This allows a different webhook to be used in Staging and Live so that the notifications go to different Slack channels, such as ``#rundeck_test`` and ``#rundeck_prod``|``T0ABCDEFG/blahblah/blahblahblahblahblah``
+|EMAIL_SERVER_HOST|The email (SMTP) server to use for email notifications|``my-smtp-server.blah.aws``
+|EMAIL_SERVER_FROM_ADDRESS|The email address to use in the FROM field when sending email notifications|``rundeck@myemailaddress.com``
+|CSI_EMAIL_ADDRESSES|The email address(es) for notifications to the CSI team in Companies House.  This can be a comma separated list of email addresses or a single email address.  This can be referenced in Rundeck with ``${globals.csi-email-addresses}``|``csi@myemailaddress.com``
+|FESS_EMAIL_ADDRESSES|The email address(es) for notifications to the FESS team in Companies House. This can be a comma separated list of email addresses or a single email address.  This can be referenced in Rundeck with ``${globals.fess-email-addresses}``|``fess@myemailaddress.com``
 
 
 ### Building the image
