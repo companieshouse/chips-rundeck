@@ -21,6 +21,7 @@ In order to use the image, a number of environment properties need to be defined
 |RUNDECK_DATABASE_URL|The jdbc url to connect to the Oracle database with|``jdbc:oracle:thin:@my-db.staging.heritage.aws.internal:1529:MYDB``
 |RUNDECK_DATABASE_USERNAME|The database username|``myusername``
 |RUNDECK_DATABASE_PASSWORD|The database user password|``mypassword``
+|RUNDECK_SERVER_UUID|A unique identifier for the Rundeck server.  Used by Rundeck when storing and then retrieving the SCM configuration from the DB.|``db20fdb5-b506-479a-baf2-68ea6fbf04c2``
 |SLACK_WEBHOOK_TOKEN|An environment specific token for using the Slack notification plugin.  This allows a different webhook to be used in Staging and Live so that the notifications go to different Slack channels, such as ``#rundeck_test`` and ``#rundeck_prod``|``T0ABCDEFG/blahblah/blahblahblahblahblah``
 |EMAIL_SERVER_HOST|The email (SMTP) server to use for email notifications|``my-smtp-server.blah.aws``
 |EMAIL_SERVER_FROM_ADDRESS|The email address to use in the FROM field when sending email notifications|``rundeck@myemailaddress.com``

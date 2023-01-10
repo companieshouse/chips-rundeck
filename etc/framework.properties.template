@@ -37,6 +37,9 @@ framework.ssh.timeout = 0
 framework.plugin.Notification.SlackNotification.webhook_token=${SLACK_WEBHOOK_TOKEN}
 framework.plugin.Notification.SlackNotification.webhook_base_url=https://hooks.slack.com/services
 
+# Server UUID - value doesn't matter but it needs to be set to allow Rundeck to find SCM config in DB
+rundeck.server.uuid=${RUNDECK_SERVER_UUID}
+
 # ---------------------------------------------------------------
 # Custom vars
 # ---------------------------------------------------------------
