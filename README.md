@@ -27,6 +27,9 @@ In order to use the image, a number of environment properties need to be defined
 |EMAIL_SERVER_FROM_ADDRESS|The email address to use in the FROM field when sending email notifications|``rundeck@myemailaddress.com``
 |CSI_EMAIL_ADDRESSES|The email address(es) for notifications to the CSI team in Companies House.  This can be a comma separated list of email addresses or a single email address.  This can be referenced in Rundeck with ``${globals.csi-email-addresses}``|``csi@myemailaddress.com``
 |FESS_EMAIL_ADDRESSES|The email address(es) for notifications to the FESS team in Companies House. This can be a comma separated list of email addresses or a single email address.  This can be referenced in Rundeck with ``${globals.fess-email-addresses}``|``fess@myemailaddress.com``
+|INSTANCE_NAME|A string that is displayed on the login page and in the top menu bar|``Live Environment``
+|INSTANCE_NAME_BACKGROUND_COLOUR|The colour of the background for the INSTANCE_NAME string|``#123456``
+|INSTANCE_NAME_TEXT_COLOUR|The colour of the text for the INSTANCE_NAME string|``#000000``
 
 
 ### Building the image

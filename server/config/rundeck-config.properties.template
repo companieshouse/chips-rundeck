@@ -30,6 +30,11 @@ rundeck.config.storage.provider.1.path=/
 
 rundeck.security.syncLdapUser=true
 
+# GUI customisations
+rundeck.gui.instanceName=${INSTANCE_NAME}
+rundeck.gui.instanceNameLabelColor=${INSTANCE_NAME_BACKGROUND_COLOUR}
+rundeck.gui.instanceNameLabelTextColor=${INSTANCE_NAME_TEXT_COLOUR}
+
 # Email
 grails.mail.host=${EMAIL_SERVER_HOST}
 grails.mail.default.from=${EMAIL_SERVER_FROM_ADDRESS}
