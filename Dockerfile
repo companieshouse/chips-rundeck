@@ -27,6 +27,7 @@ RUN cd ${RDECK_BASE} && \
 COPY --chown=rundeck:rundeck etc ${RDECK_BASE}/etc/
 COPY --chown=rundeck:rundeck bin ${RDECK_BASE}/bin/
 COPY --chown=rundeck:rundeck server ${RDECK_BASE}/server/
+COPY --chown=rundeck:rundeck i18n ${RDECK_BASE}/i18n/
 
 # Add ojdbc jar for Oracle DB and any additional plugin jars
 RUN mkdir -p ${RDECK_BASE}/server/lib && \
