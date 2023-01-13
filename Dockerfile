@@ -8,6 +8,7 @@ RUN mkdir -p /apps && \
     chmod a+xr /apps && \
     useradd -d ${RDECK_BASE} -m -s /bin/bash rundeck && \
     yum -y install gettext && \
+    yum -y install jq && \
     yum clean all && \
     rm -rf /var/cache/yum
 
@@ -28,6 +29,7 @@ COPY --chown=rundeck:rundeck etc ${RDECK_BASE}/etc/
 COPY --chown=rundeck:rundeck bin ${RDECK_BASE}/bin/
 COPY --chown=rundeck:rundeck server ${RDECK_BASE}/server/
 COPY --chown=rundeck:rundeck i18n ${RDECK_BASE}/i18n/
+COPY --chown=rundeck:rundeck scripts ${RDECK_BASE}/scripts/
 
 # Add ojdbc jar for Oracle DB and any additional plugin jars
 RUN mkdir -p ${RDECK_BASE}/server/lib && \
