@@ -44,5 +44,19 @@ rundeck.server.uuid=${RUNDECK_SERVER_UUID}
 # Custom vars
 # ---------------------------------------------------------------
 
+# Email addresses
 framework.globals.csi-email-addresses=${CSI_EMAIL_ADDRESSES}
 framework.globals.fess-email-addresses=${FESS_EMAIL_ADDRESSES}
+
+# Job specific vars
+
+# Service check credentials - used by CICS and CHIPS sanity and service check jobs
+framework.globals.chips-service-check-username=${CHIPS_SERVICE_CHECK_USERNAME}
+framework.globals.chips-service-check-password=${CHIPS_SERVICE_CHECK_PASSWORD}
+framework.globals.cics-service-check-username=${CICS_SERVICE_CHECK_USERNAME}
+framework.globals.cics-service-check-password=${CICS_SERVICE_CHECK_PASSWORD}
+
+# Service check hosts - used by CICS and CHIPS service check jobs
+framework.globals.chips-service-check-host=${CHIPS_SERVICE_CHECK_HOST}
+framework.globals.cics-service-check-host=${CICS_SERVICE_CHECK_HOST}
+

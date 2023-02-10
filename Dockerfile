@@ -12,12 +12,19 @@ RUN mkdir -p /apps && \
     yum clean all && \
     rm -rf /var/cache/yum
 
-# Install AWS CLI
-COPY awscli-exe-linux-x86_64-*.zip ${RDECK_BASE}/awscliv2.zip
-RUN cd ${RDECK_BASE} && \
-    unzip awscliv2.zip && \
-    ./aws/install && \
-    rm -r awscliv2.zip
+COPY --chown=rundeck:rundeck bin ${RDECK_BASE}/bin/
+
+# Install AWS CLI and extract JMeter
+RUN cd ${RDECK_BASE}/bin && \
+    if compgen -G "awscli-exe-linux-x86_64-*.zip" > /dev/null; then \
+      unzip awscli-exe-linux-x86_64-*.zip && \
+      ./aws/install && \
+      rm -r awscli-exe-linux-x86_64-*.zip; \
+    fi; \
+    if compgen -G "apache-jmeter-*.zip" > /dev/null; then \
+      unzip apache-jmeter-*.zip && \
+      rm -r apache-jmeter-*.zip; \
+    fi;
 
 # Install RunDeck war
 USER rundeck
@@ -26,7 +33,6 @@ RUN cd ${RDECK_BASE} && \
     /usr/java/jdk-8/bin/java -Xmx4g -jar rundeck-*.war --installonly
 
 COPY --chown=rundeck:rundeck etc ${RDECK_BASE}/etc/
-COPY --chown=rundeck:rundeck bin ${RDECK_BASE}/bin/
 COPY --chown=rundeck:rundeck server ${RDECK_BASE}/server/
 COPY --chown=rundeck:rundeck i18n ${RDECK_BASE}/i18n/
 COPY --chown=rundeck:rundeck scripts ${RDECK_BASE}/scripts/
