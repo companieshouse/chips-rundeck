@@ -48,6 +48,9 @@ rundeck.server.uuid=${RUNDECK_SERVER_UUID}
 framework.globals.csi-email-addresses=${CSI_EMAIL_ADDRESSES}
 framework.globals.fess-email-addresses=${FESS_EMAIL_ADDRESSES}
 
+# SNS Topics
+framework.globals.csi-oncall-alert-topic=${CSI_ONCALL_ALERT_SNS_TOPIC}
+
 # Job specific vars
 
 # Service check credentials - used by CICS and CHIPS sanity and service check jobs
