@@ -44,7 +44,7 @@ RUN mkdir -p ${RDECK_BASE}/server/lib && \
     mkdir -p ${RDECK_BASE}/libext && \
     cd ${RDECK_BASE}/libext && \
     curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar && \
-    curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/inokara/rundeck/aws-sns-notification-plugin/0.0.1/aws-sns-notification-plugin-0.0.1.jar -o aws-sns-notification-plugin-0.0.1.jar 
+    curl ${ARTIFACTORY_BASE_URL}/virtual-release/uk/gov/companieshouse/rundeck-sns-notification-plugin/1.0.1/rundeck-sns-notification-plugin-1.0.1.jar -o rundeck-sns-notification-plugin-1.0.1.jar 
 
 
 CMD ["/apps/rundeck/bin/start-rundeck.sh"]
