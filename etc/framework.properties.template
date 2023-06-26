@@ -40,6 +40,9 @@ framework.plugin.Notification.SlackNotification.webhook_base_url=https://hooks.s
 # Server UUID - value doesn't matter but it needs to be set to allow Rundeck to find SCM config in DB
 rundeck.server.uuid=${RUNDECK_SERVER_UUID}
 
+# Static API tokens
+rundeck.tokens.file=/apps/rundeck/etc/tokens.properties
+
 # ---------------------------------------------------------------
 # Custom vars
 # ---------------------------------------------------------------
