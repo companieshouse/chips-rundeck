@@ -5,7 +5,7 @@
 # This script updates the app-image-versions file for a specific dev environment.
 #
 # The script expects three arguments:
-# - name of the environmnet (e.g. cidev)
+# - name of the environment (e.g. cidev)
 # - chips-app image version in ECR (e.g. 74b9ae4)
 # - chips-apache image version in ECR (e.g. 74b9ae4)
 #
