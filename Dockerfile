@@ -19,7 +19,7 @@ RUN cd ${RDECK_BASE}/bin && \
     if compgen -G "awscli-exe-linux-x86_64-*.zip" > /dev/null; then \
       unzip awscli-exe-linux-x86_64-*.zip && \
       ./aws/install && \
-      rm -r awscli-exe-linux-x86_64-*.zip; \
+      rm -r aws awscli-exe-linux-x86_64-*.zip; \
     fi; \
     if compgen -G "apache-jmeter-*.zip" > /dev/null; then \
       unzip apache-jmeter-*.zip && \
