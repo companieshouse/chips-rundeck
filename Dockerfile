@@ -1,4 +1,4 @@
-FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:1.2.2
+FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:1.2.5
 
 
 ENV RDECK_BASE=/apps/rundeck \
