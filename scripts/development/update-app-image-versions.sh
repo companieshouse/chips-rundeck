@@ -6,10 +6,10 @@
 #
 # The script expects three arguments:
 # - name of the environment (e.g. cidev)
-# - chips-app image version in ECR (e.g. 74b9ae4)
-# - chips-apache image version in ECR (e.g. 74b9ae4)
+# - chips-app image version in ECR (e.g. develop-74b9ae4)
+# - chips-apache image version in ECR (e.g. develop-74b9ae4)
 #
-# The script also expects the DEV_CONFIG_BUCKET_AND_PATH env var to be set.
+# The script also expects the DEV_CONFIG_BUCKET and DEV_CONFIG_BUCKET_ENV_PATH env vars to be set.
 #
 ###############################################################################
 
@@ -27,13 +27,21 @@ CHIPS_APACHE_VERSION=$3
 TMP=/var/tmp/update-app-image-versions/${ENV_NAME}
 mkdir -p ${TMP} 
 
-S3_VERSION_FILE=s3://${DEV_CONFIG_BUCKET_AND_PATH}/${ENV_NAME}/app-image-versions
+S3_VERSION_FILE=s3://${DEV_CONFIG_BUCKET}/${DEV_CONFIG_BUCKET_ENV_PATH}/${ENV_NAME}/app-image-versions
 LOCAL_VERSION_FILE=${TMP}/app-image-versions
 
-# Download the existing file from S3
-aws s3 cp ${S3_VERSION_FILE} ${TMP}
+# Check if the environment specific app-image-versions file exists
+aws s3api head-object --bucket ${DEV_CONFIG_BUCKET} --key ${DEV_CONFIG_BUCKET_ENV_PATH}/${ENV_NAME}/app-image-versions > /dev/null 2>&1 || NO_VERSION_FILE=true
+if [ ${NO_VERSION_FILE} ]; then
+  echo "Environment specific file not found at ${S3_VERSION_FILE} - creating one from s3://${DEV_CONFIG_BUCKET}/${DEV_CONFIG_BUCKET_ENV_PATH}/app-image-versions"
+  # Download the template file from S3
+  aws s3 cp s3://${DEV_CONFIG_BUCKET}/${DEV_CONFIG_BUCKET_ENV_PATH}/app-image-versions ${TMP}
+else
+  # Download the existing file from S3
+  aws s3 cp ${S3_VERSION_FILE} ${TMP}
+fi
 
-# Modify the downloaded file
+# Modify the downloaded file to update the chips-app and chips-apache versions
 sed -i "s/chips-app:.*/chips-app:${CHIPS_APP_VERSION}/" ${LOCAL_VERSION_FILE}
 sed -i 's/chips-apache:.*/chips-apache:'${CHIPS_APACHE_VERSION}'/' ${LOCAL_VERSION_FILE}
 
