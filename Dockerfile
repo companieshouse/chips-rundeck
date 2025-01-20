@@ -2,7 +2,7 @@ FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/ch-serverjre:1.2.5
 
 
 ENV RDECK_BASE=/apps/rundeck \
-    ARTIFACTORY_BASE_URL=http://repository.aws.chdev.org:8081/artifactory
+    ARTIFACTORY_BASE_URL=https://artifactory.companieshouse.gov.uk/artifactory/virtual-release
 
 RUN mkdir -p /apps && \
     chmod a+xr /apps && \
@@ -40,11 +40,11 @@ COPY --chown=rundeck:rundeck scripts ${RDECK_BASE}/scripts/
 # Add ojdbc jar for Oracle DB and any additional plugin jars
 RUN mkdir -p ${RDECK_BASE}/server/lib && \
     cd ${RDECK_BASE}/server/lib && \
-    curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/oracle/database/jdbc/ojdbc8/21.3.0.0/ojdbc8-21.3.0.0.jar -o ojdbc8-21.3.0.0.jar && \
+    curl ${ARTIFACTORY_BASE_URL}/com/oracle/database/jdbc/ojdbc8/21.3.0.0/ojdbc8-21.3.0.0.jar -o ojdbc8-21.3.0.0.jar && \
     mkdir -p ${RDECK_BASE}/libext && \
     cd ${RDECK_BASE}/libext && \
-    curl ${ARTIFACTORY_BASE_URL}/virtual-release/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar && \
-    curl ${ARTIFACTORY_BASE_URL}/virtual-release/uk/gov/companieshouse/rundeck-sns-notification-plugin/1.0.1/rundeck-sns-notification-plugin-1.0.1.jar -o rundeck-sns-notification-plugin-1.0.1.jar 
+    curl ${ARTIFACTORY_BASE_URL}/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar && \
+    curl ${ARTIFACTORY_BASE_URL}/uk/gov/companieshouse/rundeck-sns-notification-plugin/1.0.1/rundeck-sns-notification-plugin-1.0.1.jar -o rundeck-sns-notification-plugin-1.0.1.jar 
 
 
 CMD ["/apps/rundeck/bin/start-rundeck.sh"]
