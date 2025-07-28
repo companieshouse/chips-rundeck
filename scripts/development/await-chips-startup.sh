@@ -3,30 +3,29 @@
 ##############################################################################
 #
 # This script checks to see if chips is running and returning a 200 HTTP code 
-# in a specific E2E environment via the ALB.
+# in a specific E2E environment via the local listen address.
 # If the status code is not 200 then the script will retry until the supplied timeout 
 # is exceeded or 200 is returned.
 #
 # The script expects three arguments:
 # - name of the environment (e.g. cidev)
 # - timeout in seconds - i.e. how long to keep trying before exiting with a failure code
-# - the fully qualified hostname of the node on which this script is running (e.g.  myenv.mydomain.com)
-#   (normally provided by Rundeck)
+# - the listen port
 #
 #
 ###############################################################################
 
 if [ "$#" -ne 3 ]
 then
-  echo "Invalid number of arguments - expected three arguments: <env name> <timeout> <hostname>"
+  echo "Invalid number of arguments - expected three arguments: <env name> <timeout> <port>"
   exit 1
 fi
 
 ENV_NAME=$1
 TIMEOUT=$2
-HOSTNAME=$3
+PORT=$3
 
-CHIPS_CHECK_URL="https://chips-${HOSTNAME}/chips/cff"
+CHIPS_CHECK_URL="http://127.0.0.1:${PORT}/chips/cff"
 echo "Checking connection to ${ENV_NAME} using ${CHIPS_CHECK_URL}"
 
 HTTP_STATUS=""
