@@ -10,7 +10,7 @@ ENV RDECK_BASE=/apps/rundeck \
 # Add ojdbc jar for Oracle DB and any additional plugin jars
 RUN mkdir -p ${RDECK_BASE}/server/lib && \
     cd ${RDECK_BASE}/server/lib && \
-    curl -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/oracle/database/jdbc/ojdbc8/21.3.0.0/ojdbc8-21.3.0.0.jar -o ojdbc8-21.3.0.0.jar && \
+    curl -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/oracle/database/jdbc/ojdbc11/21.9.0.0/ojdbc11-21.9.0.0.jar -o ojdbc11-21.9.0.0.jar && \
     mkdir -p ${RDECK_BASE}/libext && \
     cd ${RDECK_BASE}/libext && \
     curl -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar && \
