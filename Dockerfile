@@ -10,11 +10,11 @@ ENV RDECK_BASE=/apps/rundeck \
 # Add ojdbc jar for Oracle DB and any additional plugin jars
 RUN mkdir -p ${RDECK_BASE}/server/lib && \
     cd ${RDECK_BASE}/server/lib && \
-    curl -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/oracle/database/jdbc/ojdbc11/21.9.0.0/ojdbc11-21.9.0.0.jar -o ojdbc11-21.9.0.0.jar && \
+    curl --fail -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/oracle/database/jdbc/ojdbc11/21.9.0.0/ojdbc11-21.9.0.0.jar -o ojdbc11-21.9.0.0.jar && \
     mkdir -p ${RDECK_BASE}/libext && \
     cd ${RDECK_BASE}/libext && \
-    curl -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar && \
-    curl -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/uk/gov/companieshouse/rundeck-sns-notification-plugin/1.0.1/rundeck-sns-notification-plugin-1.0.1.jar -o rundeck-sns-notification-plugin-1.0.1.jar 
+    curl --fail -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/com/bitplaces/rundeck/slack-notification/1.2.4/slack-notification-1.2.4.jar -o slack-notification-1.2.4.jar && \
+    curl --fail -L -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_PASSWORD}" ${ARTIFACTORY_BASE_URL}/uk/gov/companieshouse/rundeck-sns-notification-plugin/1.0.1/rundeck-sns-notification-plugin-1.0.1.jar -o rundeck-sns-notification-plugin-1.0.1.jar 
 
 
 FROM 300288021642.dkr.ecr.eu-west-2.amazonaws.com/chips-openjdk:1.0.0
