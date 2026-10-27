@@ -8,4 +8,4 @@ envsubst < server/config/jaas-ldap.conf.template > server/config/jaas-ldap.conf
 envsubst < etc/framework.properties.template > etc/framework.properties
 envsubst < etc/tokens.properties.template > etc/tokens.properties
 
-/usr/java/jdk-8/jre/bin/java ${RUNDECK_JVM_OPTIONS} -jar /apps/rundeck/rundeck-*.war
+${JAVA_HOME}/bin/java ${RUNDECK_JVM_OPTIONS} -jar /apps/rundeck/rundeck-*.war
