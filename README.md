@@ -37,7 +37,7 @@ In order to use the image, a number of environment properties need to be defined
 ### Building the image
 To build the image, from the root of this repo, run:
 
-    docker build -t chips-rundeck .
+    docker build -t chips-rundeck --build-arg ARTIFACTORY_URL=<artifactory url> --build-arg ARTIFACTORY_USERNAME=<artifactory username> --build-arg ARTIFACTORY_PASSWORD=<artifactory password/token> .
 
 The build expects the following in the root of the checked out repo:
 - A rundeck war install package - e.g. rundeck-#.#.#-########.war.
