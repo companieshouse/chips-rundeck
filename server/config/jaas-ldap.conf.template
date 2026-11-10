@@ -24,7 +24,7 @@ com.dtolabs.rundeck.jetty.jaas.JettyCombinedLdapLoginModule required
       cacheDurationMillis="300000"
       ignoreRoles="true"
       storePass="true"
-      ldapsVerifyHostname="false"
+      ldapsVerifyHostname="${LDAP_VERIFY_HOSTNAME}"
       reportStatistics="true";
 
 org.rundeck.jaas.jetty.JettyRolePropertyFileLoginModule required
